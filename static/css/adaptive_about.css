@@ -208,19 +208,20 @@ img {
 
 @media (max-width: 786px) {
     .about-title {
-        font-size: 26px;
+        font-size: 22px;
         letter-spacing: 0.6px;
     }
 
     .about-text {
-        font-size: 16px;
+        font-size: 9px;
     }
 
     .product-title {
-        font-size: 16px;
+        font-size: 9px;
     }
 
     .product-text {
-        font-size: 12px;
+        font-size: 7px;
+        line-height: 1.3;
     }
 }

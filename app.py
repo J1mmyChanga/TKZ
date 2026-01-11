@@ -6,7 +6,6 @@ from datetime import datetime
 from flask_restful import Api
 from flask import Flask, render_template, redirect, url_for, request, abort, session, jsonify
 from werkzeug.serving import WSGIRequestHandler
-from utils import *
 from random import randint
 
 from data import db_session
