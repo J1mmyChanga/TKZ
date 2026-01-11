@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=0.67, user-scalable=no">
+    <title>Продукт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/product.css">
+    <link rel="stylesheet" href="../static/css/adaptive_product.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/uploads/logo.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/script.js" defer></script>
+</head>
+<body>
+    <div class="vertical-side-image">
+        <img src="../static/uploads/product/kamnepad.png" alt="Декоративный фон" class="side-img">
+    </div>
+    <div class="circle-background"></div>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="/" style="text-decoration: none;">
+                    <img src="../static/uploads/logo.png" class="header-logo">
+                </a>
+                <a class="logo" href="/" style="text-decoration: none;">
+                    ТОРЕЗСКИЙ КИРПИЧНЫЙ ЗАВОД
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/about">О заводе</a></li>
+                    <li><a href="/#product">Продукт</a></li>
+                    <li><a href="/#gallery">Галерея</a></li>
+                    <li><a href="../static/files/price.xlsx">Прайс</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="main-title-section">
+            <div class="container-wrapper" style="margin-bottom: 13vh;">
+                <div class="row justify-content-center align-items-center">
+                    <!-- Текст слева -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="main-title">ПРАЙС</div>
+                    </div>
+                    
+                    <!-- Карусель справа - скрывается на мобильных -->
+                    <div class="col-lg-4 col-md-6 d-none d-md-block">
+                        <img src="../static/uploads/first_slideshow/2.png" alt="..." class="d-block w-100">
+                    </div>
+                </div>
+            </div>
+            <section class="button-section">
+                <div class="product-title">Полный прайс здесь</div>
+                <a href="../static/files/price.xlsx" class="button">Открыть</a>
+            </section>
+        </section>
+    
+        <section style="width: 80vw; margin: 0 auto;">
+
+
+            {% for item in items %}
+            <div class="row justify-content-center align-items-center" style="margin: 80px auto;">
+                <div class="col-4">
+                    <img src="{{item.filepath}}" alt="..." class="d-block w-100">
+                </div>
+                <div class="col-4 border-start border-dark" style="padding-left: 40px;">
+                    <div class="item-title">{{item.name}}</div>
+                    <div class="item-text">Размер(мм): {{item.size}}</div>
+                    <div class="item-text">5 цветов</div>
+                    <div class="item-text">Кол-во на 1м, шт: {{item.amount_per_meter}}</div>
+                    <div class="item-text">Вес 1 шт, кг: {{item.weight}} кг.</div>
+                    <div class="item-text">Кол-во в пачке, шт: {{item.amount}} шт</div>
+                    <div class="item-subtitle">Цена: от {{item.price_no_package}} руб./шт.</div>
+                    <div class="item-subtitle">Цвет: {{item.color}}</div>
+                    {% if item.id % 5 == 1 %}
+                        <img src="../static/uploads/product/1.png" alt="..." class="d-block" width="70%">
+                    {% elif item.id % 5 == 2 %}
+                        <img src="../static/uploads/product/2.png" alt="..." class="d-block" width="70%">
+                    {% elif item.id % 5 == 3 %}
+                        <img src="../static/uploads/product/3.png" alt="..." class="d-block" width="70%">
+                    {% elif item.id % 5 == 4 %}
+                        <img src="../static/uploads/product/4.png" alt="..." class="d-block" width="70%">
+                    {% else %}
+                        <img src="../static/uploads/product/5.png" alt="..." class="d-block" width="70%">
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            
+
+
+        </section>
+    </main>
+    <footer class="contacts-section">
+        <div class="contacts-title">Контакты</div>
+        
+        <div class="contacts-main-container">
+            <div class="contacts-container">
+                <div class="contacts-column">
+                    <div class="contacts-header">Свяжитесь с нами</div>
+                    <ul class="contact-list">
+                        <li class="contact-item email">
+                            <span class="contact-label">Почта</span>
+                            <a href="mailto:super:gghj46@mail.ru" class="contact-value">
+                                super:gghj46@mail.ru
+                            </a>
+                        </li>
+                        <li class="contact-item social">
+                            <span class="contact-label">Группа</span>
+                            <a href="https://vk.com/kirpich202345" target="_blank" class="contact-value">
+                                https://vk.com/kirpich202345
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contacts-column">
+                    <ul class="contact-list">
+                        <li class="contact-item address">
+                            <span class="contact-label">Адрес</span>
+                            <div class="contact-value">
+                                ДНР, город Торез<br>
+                                ЦОФ Киселева, улица Ленина, 300
+                            </div>
+                        </li>
+                        <li class="contact-item phone">
+                            <span class="contact-label">Телефон</span>
+                            <div class="phone-numbers">
+                                <a href="tel:+7949404768" class="contact-value">+7 (949) 40-47-68</a>
+                                <a href="https://t.me/+7949404767" class="contact-value">+7 (949) 40-47-67</a>
+                                <span class="phone-note">(Telegram)</span>
+                                <a href="tel:+79490948705" class="contact-value">+7 (949) 094-87-05</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    id="map"
+                    src="https://yandex.ru/map-widget/v1/?ll=38.672690%2C48.011437&z=16&pt=38.672690,48.011437,pm2rdm"
+                    frameborder="0"
+                    allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+    
+    <script>
+        // Дополнительные улучшения для карты
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapFrame = document.getElementById('map');
+            
+            // Ленивая загрузка карты
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        mapFrame.src = mapFrame.dataset.src || mapFrame.src;
+                        observer.unobserve(mapFrame);
+                    }
+                });
+            });
+            
+            // Для поддержки ленивой загрузки можно добавить data-src атрибут
+            if (mapFrame.getAttribute('data-src')) {
+                observer.observe(mapFrame);
+            }
+            
+            // Плавный скролл к контактам при клике
+            document.querySelectorAll('a[href^="mailto"], a[href^="tel"], a[href^="https://t.me"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Позволяем стандартное поведение ссылок
+                    // (открытие почты/телефона)
+                });
+            });
+        });
+    </script>
+    </footer>
+</body>
+</html>

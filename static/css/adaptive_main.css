@@ -1,0 +1,357 @@
+/* =============================
+   АДАПТИВНЫЙ CSS (override)
+   Не ломает дизайн, только стабилизирует
+   ============================= */
+
+/* --- Общие правки сетки --- */
+
+/* Сбрасываем отступы у body и html */
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- HERO секция --- */
+@media (max-width: 768px) {
+    .main-title-left,
+    .main-carousel-right {
+        text-align: center;
+    }
+
+    .main-carousel-right {
+        margin-top: 30px;
+    }
+}
+
+/* --- Карточки товаров --- */
+.item-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.item-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.item-button {
+    margin-top: auto;
+}
+
+/* --- Типы / фактуры --- */
+.type-columns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+@media (max-width: 767px) {
+    .type-columns {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- ABOUT --- */
+@media (max-width: 767px) {
+    .about-columns {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- Галерея --- */
+.carousel-custom img {
+    object-fit: cover;
+}
+
+/* --- Контакты + карта --- */
+@media (max-width: 767px) {
+    .contacts-main-container {
+        flex-direction: column;
+    }
+
+    .map-container {
+        min-height: 250px;
+    }
+}
+
+/* --- Очень маленькие экраны --- */
+@media (max-width: 480px) {
+    .button,
+    .item-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: clamp(32px, 10vw, 48px);
+        line-height: 1.05;
+    }
+
+    .main-subtitle {
+        font-size: clamp(20px, 6vw, 28px);
+    }
+
+    .main-subsubtitle {
+        font-size: 16px;
+    }
+
+    .first-carousel-custom img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .item-card {
+        padding: 16px;
+    }
+
+    .item-title {
+        font-size: 16px;
+    }
+
+    .item-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-container {
+        min-height: 220px;
+        max-height: 250px;
+    }
+}
+
+img {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .logo-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-columns {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-column-left,
+    .about-column-right {
+        text-align: center;
+        padding: 0;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 767px) {
+    .type-columns {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .type-column-left,
+    .type-column-right {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        font-size: 14px;
+        padding: 10px 22px;
+
+        /* остаётся компактной */
+        width: fit-content;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 26px;
+        letter-spacing: 0.6px;
+    }
+
+    .about-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-title {
+        font-size: 26px;
+    }
+
+    .product-subtitle {
+        font-size: 22px;
+    }
+
+    .product-type {
+        font-size: 20px;
+    }
+    
+    .item-button {
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 8px;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        padding: 3px;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 9px;
+        letter-spacing: 1px;
+        border-radius: 10px;
+        text-align: center;
+        align-self: flex-start;
+
+    }
+
+    .item-title {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .item-text {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .product-section {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 600px) {
+    body::before {
+        display: none;
+    }
+}
+
+/* Адаптив для футера */
+@media (max-width: 768px) {
+    .contacts-main-container {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .contacts-container {
+        flex-direction: column;
+    }
+
+    .contacts-column {
+        flex: 1 1 100%;
+        padding: 20px;
+    }
+
+    .map-container {
+        order: 0; /* карта под контактами */
+        min-height: 250px;
+        margin-top: 20px;
+    }
+
+    .contact-list {
+        gap: 20px;
+    }
+
+    .contact-label {
+        font-size: 16px;
+    }
+
+    .contact-value {
+        font-size: 14px;
+    }
+
+    .phone-note {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-title {
+        font-size: 24px;
+        padding-top: 10%;
+        margin-bottom: 20px;
+    }
+
+    .contacts-column {
+        padding: 15px;
+    }
+
+    .contact-label {
+        font-size: 14px;
+    }
+
+    .contact-value {
+        font-size: 13px;
+    }
+
+    .phone-note {
+        font-size: 11px;
+    }
+
+    .map-container {
+        min-height: 200px;
+    }
+}
+
+/* Центрируем карусель на мобильных */
+@media (max-width: 768px) {
+    .main-carousel-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрирование горизонтальное */
+        text-align: center; /* Центрируем текст под каруселью */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+}

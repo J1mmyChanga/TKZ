@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=0.67, user-scalable=no">
+    <title>Торезский кирпичный завод</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/adaptive_main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/uploads/logo.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/script.js" defer></script>
+</head>
+<body>
+    <div class="circle-background"></div>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="/" style="text-decoration: none;">
+                    <img src="../static/uploads/logo.png" class="header-logo">
+                </a>
+                <a class="logo" href="/" style="text-decoration: none;">
+                    ТОРЕЗСКИЙ КИРПИЧНЫЙ ЗАВОД
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/about">О заводе</a></li>
+                    <li><a href="#product">Продукт</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="../static/files/price.xlsx">Прайс</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="main-title-section">
+            <div class="container-wrapper">
+                <div class="row justify-content-center align-items-end">
+                    <div class="col-lg-4 col-md-5 col-12 main-title-left">
+                        <div class="main-title">КИРПИЧ</div>
+                        <div class="main-subtitle">И ТРОТУАРНАЯ</div>
+                        <div class="main-title">ПЛИТКА</div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-5 col-12 main-carousel-right">
+                        <div id="carouselExampleFade" class="carousel slide first-carousel-custom" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="3000">
+                                    <img src="../static/uploads/first_slideshow/1.png" alt="..." loading="lazy" class="d-block w-100">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="../static/uploads/first_slideshow/2.png" alt="..." loading="lazy" class="d-block w-100">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="../static/uploads/first_slideshow/3.png" alt="..." loading="lazy" class="d-block w-100">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="main-subsubtitle">МЕТОД ГИПЕРПРЕССОВАНИЯ</span>
+                    </div>
+                </div>
+            </div>
+            <section class="button-section">
+                <a href="/about" class="button">Смотреть здесь</a>
+            </section>
+        </section>
+    
+        <section class="about-section">
+            <div class="about-title">О ЗАВОДЕ</div>
+            <div class="about-columns">
+                <div class="about-column-left">
+                    <p class="about-text">Торезский кирпичный завод производит кирпич и тротуарную плитку методом гиперпрессования.</p>
+                </div>
+                <div class="about-column-right">
+                    <p class="about-text">Завод на рынке более 20 лет</p>
+                    <a href="/about" class="button">Читать здесь</a>
+                </div>
+            </div>
+        </section>
+
+        <img src="../static/uploads/main/main1.png" title="Плитка" width="100%" style="margin-bottom: 30px;"/>
+
+        <section class="product-section" id="product">
+            <div class="product-title">ПРОДУКТ</div>
+            <div class="product-subtitle">Кирпич</div>
+
+
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Гладкая"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_plane %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Финская"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_fin %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Старый город"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_oldtown %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Скала"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_rock %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Мраморная"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_marble %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" loading="lazy" alt="..." class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Цокольный кирпич</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in kips_base %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+            <div class="product-subtitle">Плитка</div>
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Старый город"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in tiles_oldtown %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Скала"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in tiles_rock %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Фактура "Мраморная"</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in tiles_marble %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Цокольная плитка</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in tiles_base %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="type-columns">
+                <div class="type-column-left">
+                    <img src="../static/uploads/main/colors.png" loading="lazy" title="Цвета" width="60%"/>
+                </div>
+                <div class="type-column-right">
+                    <div class="product-type">Тротуарная гиперпрессованная плитка</div>
+                </div>
+            </div>
+
+            <div class="row" >
+                {% for item in tiles_path %}
+                <div class="col-6 col-sm-6">
+                    <div class="row align-items-center" style="margin 30px;">
+                        <div class="col-6">
+                            <img src="{{item.filepath}}" alt="..." loading="lazy" class="d-block w-100">
+                        </div>
+                        <div class="col-6" style="text-align: left">
+                            <div class="item-title">{{item.name}}</div>
+                            <div class="item-text">Размер(мм): {{item.size}}</div>
+                            <div class="item-text">Цена: от {{item.price_no_package}} руб./шт.</div>
+                            <a href="/item/{{item.id}}" class="item-button">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </section>
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-title">Галерея</div>
+            <div id="basicCarousel" class="carousel slide carousel-custom" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../static/uploads/sec_slideshow/1.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/2.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/3.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/4.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/5.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/6.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/7.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/8.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/9.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/10.png" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/uploads/sec_slideshow/11.png" loading="lazy" class="d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#basicCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                    <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#basicCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Следующий</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer class="contacts-section">
+        <div class="contacts-title">Контакты</div>
+        
+        <div class="contacts-main-container">
+            <div class="contacts-container">
+                <div class="contacts-column">
+                    <div class="contacts-header">Свяжитесь с нами</div>
+                    <ul class="contact-list">
+                        <li class="contact-item email">
+                            <span class="contact-label">Почта</span>
+                            <a href="mailto:super:gghj46@mail.ru" class="contact-value">
+                                super:gghj46@mail.ru
+                            </a>
+                        </li>
+                        <li class="contact-item social">
+                            <span class="contact-label">Группа</span>
+                            <a href="https://vk.com/kirpich202345" target="_blank" class="contact-value">
+                                https://vk.com/kirpich202345
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contacts-column">
+                    <ul class="contact-list">
+                        <li class="contact-item address">
+                            <span class="contact-label">Адрес</span>
+                            <div class="contact-value">
+                                ДНР, город Торез<br>
+                                ЦОФ Киселева, улица Ленина, 300
+                            </div>
+                        </li>
+                        <li class="contact-item phone">
+                            <span class="contact-label">Телефон</span>
+                            <div class="phone-numbers">
+                                <a href="tel:+7949404768" class="contact-value">+7 (949) 40-47-68</a>
+                                <a href="https://t.me/+7949404767" class="contact-value">+7 (949) 40-47-67</a>
+                                <span class="phone-note">(Telegram)</span>
+                                <a href="tel:+79490948705" class="contact-value">+7 (949) 094-87-05</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    id="map"
+                    src="https://yandex.ru/map-widget/v1/?ll=38.672690%2C48.011437&z=16&pt=38.672690,48.011437,pm2rdm"
+                    frameborder="0"
+                    allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+    
+    <script>
+        // Дополнительные улучшения для карты
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapFrame = document.getElementById('map');
+            
+            // Ленивая загрузка карты
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        mapFrame.src = mapFrame.dataset.src || mapFrame.src;
+                        observer.unobserve(mapFrame);
+                    }
+                });
+            });
+            
+            // Для поддержки ленивой загрузки можно добавить data-src атрибут
+            if (mapFrame.getAttribute('data-src')) {
+                observer.observe(mapFrame);
+            }
+            
+            // Плавный скролл к контактам при клике
+            document.querySelectorAll('a[href^="mailto"], a[href^="tel"], a[href^="https://t.me"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Позволяем стандартное поведение ссылок
+                    // (открытие почты/телефона)
+                });
+            });
+        });
+    </script>
+    </footer>
+</body>
+</html>

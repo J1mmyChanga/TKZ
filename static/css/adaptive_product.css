@@ -1,0 +1,247 @@
+/* =============================
+   АДАПТИВНЫЙ CSS (override)
+   Не ломает дизайн, только стабилизирует
+   ============================= */
+
+/* --- Общие правки сетки --- */
+
+/* Сбрасываем отступы у body и html */
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- HERO секция --- */
+@media (max-width: 768px) {
+    .main-title-left,
+    .main-carousel-right {
+        text-align: center;
+    }
+
+    .main-carousel-right {
+        margin-top: 30px;
+    }
+}
+/* --- Контакты + карта --- */
+@media (max-width: 767px) {
+    .contacts-main-container {
+        flex-direction: column;
+    }
+
+    .map-container {
+        min-height: 250px;
+    }
+}
+
+/* --- Очень маленькие экраны --- */
+@media (max-width: 480px) {
+    .button,
+    .item-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: clamp(32px, 10vw, 48px);
+        line-height: 1.05;
+    }
+s
+    .main-subtitle {
+        font-size: clamp(20px, 6vw, 28px);
+    }
+
+    .main-subsubtitle {
+        font-size: 16px;
+    }
+
+    .first-carousel-custom img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .item-card {
+        padding: 16px;
+    }
+
+    .item-title {
+        font-size: 14px;
+    }
+
+    .item-subtitle {
+        font-size: 12px;
+    }
+
+    .item-text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-container {
+        min-height: 220px;
+        max-height: 250px;
+    }
+}
+
+img {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .logo-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .button {
+        font-size: 14px;
+        padding: 10px 22px;
+
+        /* остаётся компактной */
+        width: fit-content;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 26px;
+        letter-spacing: 0.6px;
+    }
+
+    .about-text {
+        font-size: 9px;
+        line-height: 1;
+    }
+
+    .product-title {
+        font-size: 19px;
+        letter-spacing: 0.6px;
+        margin-top: 30px;
+    }
+
+    .product-text {
+        font-size: 6px;
+        letter-spacing: 0.6px;
+        line-height: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    body::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .index-img {
+        display: none;
+    }
+}
+
+/* Адаптив для футера */
+@media (max-width: 768px) {
+    .contacts-main-container {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .contacts-container {
+        flex-direction: column;
+    }
+
+    .contacts-column {
+        flex: 1 1 100%;
+        padding: 20px;
+    }
+
+    .map-container {
+        order: 0; /* карта под контактами */
+        min-height: 250px;
+        margin-top: 20px;
+    }
+
+    .contact-list {
+        gap: 20px;
+    }
+
+    .contact-label {
+        font-size: 16px;
+    }
+
+    .contact-value {
+        font-size: 14px;
+    }
+
+    .phone-note {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-title {
+        font-size: 24px;
+        padding-top: 10%;
+        margin-bottom: 20px;
+    }
+
+    .contacts-column {
+        padding: 15px;
+    }
+
+    .contact-label {
+        font-size: 14px;
+    }
+
+    .contact-value {
+        font-size: 13px;
+    }
+
+    .phone-note {
+        font-size: 11px;
+    }
+
+    .map-container {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 786px) {
+    .main-title {
+        text-align: center;
+    }
+}

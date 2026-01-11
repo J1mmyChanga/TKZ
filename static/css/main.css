@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    line-height: 1.4;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -80vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120vw;
+    height: 120vw;
+    border-radius: 60vw;
+    background-color: #f4f4ec; /* Цвет круга, можно изменить */
+    z-index: -1; /* Отправляем круг на задний план */
+    pointer-events: none; /* Чтобы клики проходили сквозь круг */
+}
+
+/* Шапка */
+header {
+    background-color: #f4f4ec;
+    padding: 20px 0;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    gap: 20px; /* Отступ между логотипом и текстом */
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.header-logo {
+    height: 60px; /* Фиксированная высота для десктопа */
+    width: auto; /* Ширина подстраивается автоматически */
+    max-width: 100px; /* Максимальная ширина */
+    object-fit: contain; /* Сохраняет пропорции */
+    transition: transform 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+nav a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: #d32f2f;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #d32f2f;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.main-title-section {
+    padding: 60px 0 60px;
+    text-align: left;
+    position: relative;
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 120px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+
+    max-width: 1400px;
+}
+
+.main-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-subsubtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 38px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    max-width: 1400px;
+}
+
+.button {
+    display: inline-block;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 24px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button-section {
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 60px 0 140px 0;
+}
+
+.about-section {
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 60px 0;
+    padding: 40px 0;
+
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    color: #272023;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.about-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-columns {
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-column-left,
+.about-column-right {
+    flex: 1;
+    text-align: left;
+    margin: 0 50px;
+}
+
+.product-section {
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 60px 0;
+    padding: 40px 0;
+
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+.product-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    color: #272023;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.product-subtitle {
+    text-align: center;
+    font-family: 'Yeseva One';
+    font-weight: 400;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    letter-spacing: 3px;
+    color: #969696;
+}
+
+.product-type {
+    font-family: 'Yeseva One';
+    color: #4A4C49;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.item-title {
+    text-align: left;
+    font-family: 'Yeseva One';
+    font-weight: 400;
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: #4A4C49;
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+.item-text {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #4A4C49;
+    line-height: 1.6;
+}
+
+.item-button {
+    display: inline-block;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    background-color: #000;
+    color: #fff;
+    padding: 8px 30px;
+    text-decoration: none;
+    align-items: left;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+
+.type-columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 65px;
+    margin: 75px 0;
+}
+
+.type-column-left{
+    flex: 1;
+    text-align: right;
+}
+
+.type-column-right {
+    flex: 1;
+    text-align: left;
+}
+
+.gallery-section {
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 60px 0;
+    padding: 40px 0;
+
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.gallery-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    text-transform: uppercase;
+    color: #272023;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.contacts-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    color: #272023;
+    padding-top: 60px;
+}
+
+.contacts-section {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.contacts-main-container {
+    display: flex;
+    flex: 1;
+    min-height: 45vh;
+}
+
+.contacts-container {
+    flex: 0 0 50%;
+    background: #2A2A2A;
+    display: flex;
+}
+
+.contacts-header {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.contacts-column {
+    flex: 1;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container {
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-label {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-value {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-value:hover {
+    color: #4a76a8;
+}
+
+.phone-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.phone-note {
+    font-size: 16px;
+    color: #888;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.carousel-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-custom img {
+    height: 800px;
+    object-fit: contain;
+}
+
+.first-carousel-custom {
+    max-width: 40vw;
+}
+
+.first-carousel-custom img {
+    height: 400px;
+    width: 100%;
+    object-fit: contain;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка во всем документе */
+}
