@@ -1,4 +1,5 @@
 import io
+import mimetypes
 import os
 from werkzeug.utils import secure_filename
 import uuid
@@ -15,6 +16,8 @@ from data.factures import Factures
 from data.types import Types
 from data.photos import Photos
 
+mimetypes.add_type('image/webp', '.webp')
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "TorezKirZ"
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -22,6 +25,13 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 api = Api(app)
 
 db_session.global_init('db/tkz.db')
+
+
+def optimized_image_path(filepath):
+    optimized_path = os.path.splitext(filepath)[0] + '.webp'
+    disk_path = os.path.join(app.root_path, optimized_path.removeprefix('../'))
+    return optimized_path if os.path.isfile(disk_path) else filepath
+
 
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
@@ -45,7 +55,7 @@ def main_page():
             "size": item.size,
             "id": item.id,
             "price_no_package": item.price_no_package,
-            "filepath": session.query(Photos).filter(item.id == Photos.id).first().filepath}
+            "filepath": optimized_image_path(session.query(Photos).filter(item.id == Photos.id).first().filepath)}
         if item.facture_id == 1: kips_plane.append(item_dict)
         elif item.facture_id == 2: kips_fin.append(item_dict)
         elif item.facture_id == 3: kips_oldtown.append(item_dict)
@@ -67,7 +77,7 @@ def main_page():
             "size": item.size,
             "id": item.id,
             "price_no_package": item.price_no_package,
-            "filepath": session.query(Photos).filter(item.id == Photos.id).first().filepath}
+            "filepath": optimized_image_path(session.query(Photos).filter(item.id == Photos.id).first().filepath)}
         if item.facture_id == 3: tiles_oldtown.append(item_dict)
         elif item.facture_id == 4: tiles_rock.append(item_dict)
         elif item.facture_id in [5, 6]: tiles_marble.append(item_dict)
@@ -114,7 +124,7 @@ def get_items(id):
             "amount": item.amount,
             "price_no_package": item.price_no_package,
             "color": session.query(Colors).filter(item.color_id == Colors.id).first().color.lower(),
-            "filepath": session.query(Photos).filter(item.id == Photos.id).first().filepath}
+            "filepath": optimized_image_path(session.query(Photos).filter(item.id == Photos.id).first().filepath)}
         if item_dict['amount_per_meter'] is None:
             item_dict['amount_per_meter'] = '-'
         items.append(item_dict)

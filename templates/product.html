@@ -17,14 +17,14 @@
 </head>
 <body>
     <div class="vertical-side-image">
-        <img src="../static/uploads/product/kamnepad.png" alt="Декоративный фон" class="side-img">
+        <img loading="eager" fetchpriority="high" decoding="async" src="../static/uploads/product/kamnepad.webp" alt="Декоративный фон" class="side-img">
     </div>
     <div class="circle-background"></div>
     <header>
         <div class="header-content">
             <div class="logo-container">
                 <a href="/" style="text-decoration: none;">
-                    <img src="../static/uploads/logo.png" class="header-logo">
+                    <img loading="eager" fetchpriority="high" decoding="async" src="../static/uploads/logo.webp" class="header-logo">
                 </a>
                 <a class="logo" href="/" style="text-decoration: none;">
                     ТОРЕЗСКИЙ КИРПИЧНЫЙ ЗАВОД
@@ -51,7 +51,7 @@
                     
                     <!-- Карусель справа - скрывается на мобильных -->
                     <div class="col-lg-4 col-md-6 d-none d-md-block">
-                        <img src="../static/uploads/first_slideshow/2.png" alt="..." class="d-block w-100">
+                        <img loading="eager" fetchpriority="high" decoding="async" src="../static/uploads/first_slideshow/2.webp" alt="..." class="d-block w-100">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             {% for item in items %}
             <div class="row justify-content-center align-items-center" style="margin: 80px auto;">
                 <div class="col-4">
-                    <img src="{{item.filepath}}" alt="..." class="d-block w-100">
+                    <img loading="lazy" decoding="async" src="{{item.filepath}}" alt="..." class="d-block w-100">
                 </div>
                 <div class="col-4 border-start border-dark" style="padding-left: 40px;">
                     <div class="item-title">{{item.name}}</div>
@@ -79,15 +79,15 @@
                     <div class="item-subtitle">Цена: от {{item.price_no_package}} руб./шт.</div>
                     <div class="item-subtitle">Цвет: {{item.color}}</div>
                     {% if item.id % 5 == 1 %}
-                        <img src="../static/uploads/product/1.png" alt="..." class="d-block" width="70%">
+                        <img loading="lazy" decoding="async" src="../static/uploads/product/1.webp" alt="..." class="d-block" width="70%">
                     {% elif item.id % 5 == 2 %}
-                        <img src="../static/uploads/product/2.png" alt="..." class="d-block" width="70%">
+                        <img loading="lazy" decoding="async" src="../static/uploads/product/2.webp" alt="..." class="d-block" width="70%">
                     {% elif item.id % 5 == 3 %}
-                        <img src="../static/uploads/product/3.png" alt="..." class="d-block" width="70%">
+                        <img loading="lazy" decoding="async" src="../static/uploads/product/3.webp" alt="..." class="d-block" width="70%">
                     {% elif item.id % 5 == 4 %}
-                        <img src="../static/uploads/product/4.png" alt="..." class="d-block" width="70%">
+                        <img loading="lazy" decoding="async" src="../static/uploads/product/4.webp" alt="..." class="d-block" width="70%">
                     {% else %}
-                        <img src="../static/uploads/product/5.png" alt="..." class="d-block" width="70%">
+                        <img loading="lazy" decoding="async" src="../static/uploads/product/5.webp" alt="..." class="d-block" width="70%">
                     {% endif %}
                 </div>
             </div>
