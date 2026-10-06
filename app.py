@@ -105,6 +105,10 @@ def main_page():
 def apps_panel():
     return render_template('about.html')
 
+@app.route('/yandex_00f0d1991e53a2fe.html', methods=['GET'])
+def yandex_verification():
+    return '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>Verification: 00f0d1991e53a2fe</body></html>', 200, {'Content-Type': 'text/html; charset=utf-8'}
+
 
 @app.route('/item/<int:id>', methods=['GET'])
 def get_items(id):
